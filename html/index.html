@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OutreachHub - Home</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <h1>This is home page</h1>
+  <header class="navbar">
+    <div class="nav-brand">OutreachHub</div>
 
-    <h5><a href="../html/login.html">go to logout</a></h5>
-    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">Campaigns</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="../html/login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>Welcome to OutreachHub</h1>
+    <p>Start managing your contacts, campaigns, and more.</p>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
