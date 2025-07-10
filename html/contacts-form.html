@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts Module</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/contacts-form.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-brand">OutreachHub</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu" id="nav-menu">
+            <ul class="nav-links">
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Campaigns</a></li>
+                <li><a href="#">Templates</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="./login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-form">
+        <h1>Add Contact</h1>
+        <form id="contactForm">
+            <input type="hidden" id="contactId" />
+            <input type="text" id="name" placeholder="Full Name" required />
+            <input type="tel" id="phone" placeholder="Phone Number" required />
+            <input type="email" id="email" placeholder="Email Address" />
+            <button type="submit" class="primary-button">Save</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 OutreachHub. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/storage.js" ></script>
+    <script src="../js/contacts-form.js"></script>
+
+</body>
+
+</html>

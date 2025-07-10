@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts Module</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/contacts.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-brand">OutreachHub</div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu" id="nav-menu">
+            <ul class="nav-links">
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Campaigns</a></li>
+                <li><a href="#">Templates</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="./login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header class="header">
+            <h1>📇 OutreachHub Contacts</h1>
+            <button onclick="window.location.href='contacts-form.html'" class="primary-button">+ Add Contact</button>
+        </header>
+
+        <section class="contact-list">
+            <h2>All Contacts</h2>
+            <ul id="list" class="contact-items"></ul>
+            <div id="pagination" class="pagination"></div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 OutreachHub. All rights reserved.</p>
+    </footer>
+    
+    <script src="../js/storage.js"></script>
+    <script src="../js/pagination.js"></script>
+    <script>
+        const contacts = getContacts();
+        renderPaginatedContacts(contacts);
+    </script>
+</body>
+
+</html>

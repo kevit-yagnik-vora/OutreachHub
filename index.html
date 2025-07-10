@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OutreachHub - Home</title>
   <link rel="stylesheet" href="../css/index.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <header class="navbar">
     <div class="nav-brand">OutreachHub</div>
@@ -20,7 +22,7 @@
     <nav class="nav-menu" id="nav-menu">
       <ul class="nav-links">
         <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Contacts</a></li>
+        <li><a href="./html/contacts-list.html">Contacts</a></li>
         <li><a href="#">Campaigns</a></li>
         <li><a href="#">Templates</a></li>
         <li><a href="#">Analytics</a></li>
@@ -38,13 +40,13 @@
     </section>
 
     <section class="analytics-charts">
-  <h2>Analytics Overview</h2>
-  <div class="chart-grid">
-    <img src="./assets/images/campaing-analysis.png" alt="Campaigns per day" />
-    <img src="./assets/images/message-per-type.webp" alt="Messages per type" />
-    <img src="./assets/images/contact-reached.webp" alt="Contacts reached" />
-  </div>
-</section>
+      <h2>Analytics Overview</h2>
+      <div class="chart-grid">
+        <img src="./assets/images/campaing-analysis.png" alt="Campaigns per day" />
+        <img src="./assets/images/message-per-type.webp" alt="Messages per type" />
+        <img src="./assets/images/contact-reached.webp" alt="Contacts reached" />
+      </div>
+    </section>
 
     <section class="analytics-tables">
       <h2>Recent Campaigns</h2>
@@ -95,6 +97,10 @@
     </section>
   </main>
 
+  <footer class="footer">
+    <p>&copy; 2025 OutreachHub. All rights reserved.</p>
+  </footer>
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -105,4 +111,5 @@
     });
   </script>
 </body>
+
 </html>
