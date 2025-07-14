@@ -5,10 +5,9 @@
 }
 
 body {
-  font-family: 'Poppins' 'Inter', sans-serif;
+  font-family: "Poppins", "Inter", sans-serif;
   background-color: #f5f7fa;
   color: #333;
-  /* padding: 20px; */
 }
 
 .container {
@@ -17,7 +16,7 @@ body {
   background: #fff;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -26,7 +25,6 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-
 .header h1 {
   font-size: 24px;
   font-weight: 600;
@@ -42,7 +40,6 @@ body {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .primary-button:hover {
   background-color: #357ac9;
 }
@@ -56,7 +53,6 @@ body {
 .contact-items {
   list-style: none;
 }
-
 .contact-items li {
   display: flex;
   justify-content: space-between;
@@ -80,12 +76,10 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
-
 .contact-actions .edit {
   background: #6c5ce7;
   color: #fff;
 }
-
 .contact-actions .delete {
   background: #d63031;
   color: #fff;
@@ -95,7 +89,6 @@ body {
   margin-top: 20px;
   text-align: center;
 }
-
 .pagination button {
   background: #ddd;
   border: none;
@@ -104,8 +97,7 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
-
 .pagination button.active {
   background: #4a90e2;
   color: #fff;
-}
+}/*# sourceMappingURL=contacts.css.map */
