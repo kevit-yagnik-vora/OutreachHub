@@ -1,0 +1,120 @@
+// ==================== Variables ====================
+$primary-color: #007BFF;
+$primary-hover: #0056b3;
+$text-dark: #333;
+$text-medium: #444;
+$input-border: #ccc;
+$bg-white: rgba(255, 255, 255, 0.95);
+$shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+$border-radius: 15px;
+$input-radius: 8px;
+$font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// ==================== Base Reset ====================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ==================== Body ====================
+body {
+  font-family: $font-main;
+  background-image: url('../assets/images/login-background.avif');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ==================== Login Container ====================
+.login-container {
+  background-color: $bg-white;
+  padding: 2.5rem;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  width: 100%;
+  max-width: 400px;
+
+  .brand-title {
+    text-align: center;
+    font-size: 2rem;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: $text-dark;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: $text-medium;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid $input-border;
+      border-radius: $input-radius;
+      font-size: 1rem;
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
+    }
+  }
+
+  .form-remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form-actions {
+    text-align: center;
+    margin-top: 1rem;
+
+    .form-button {
+      background-color: $primary-color;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: $input-radius;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+
+  .form-links {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
