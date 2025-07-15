@@ -92,7 +92,7 @@ body {
     margin-bottom: 10px;
     background: $item-bg;
 
-    @media (max-width: 580px) {
+    @media (max-width: 600px) {
       flex-direction: column;
       align-items: flex-start;
     }

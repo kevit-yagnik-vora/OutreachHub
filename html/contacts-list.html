@@ -56,8 +56,7 @@
     <script src="../js/storage.js"></script>
     <script src="../js/pagination.js"></script>
     <script>
-        const contacts = getContacts();
-        renderPaginatedContacts(contacts);
+        getContacts().then(contacts => renderPaginatedContacts(contacts));
     </script>
 </body>
 

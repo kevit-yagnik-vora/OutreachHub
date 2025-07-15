@@ -1,9 +1,10 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const contactId = params.get('id');
 
     if (contactId) {
-        const contact = getContactById(contactId);
+        let contact;
+        await getContactById(contactId).then(res => contact = res);
         if (contact) {
             document.getElementById("contactId").value = contact.id;
             document.getElementById("name").value = contact.name;

@@ -44,17 +44,17 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-    const contact = getContactById(id);
-
-    if (contact) {
-      document.getElementById('contactDetails').innerHTML = `
+    getContactById(id).then(contact => {
+      if (contact) {
+        document.getElementById('contactDetails').innerHTML = `
         <p><strong>Name:</strong> ${contact.name}</p>
         <p><strong>Phone:</strong> ${contact.phone}</p>
         <p><strong>Email:</strong> ${contact.email}</p>
       `;
-    } else {
-      document.getElementById('contactDetails').innerHTML = '<p>Contact not found.</p>';
-    }
+      } else {
+        document.getElementById('contactDetails').innerHTML = '<p>Contact not found.</p>';
+      }
+    });
   </script>
 </body>
 

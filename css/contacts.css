@@ -70,7 +70,7 @@ body {
   margin-bottom: 10px;
   background: #fafafa;
 }
-@media (max-width: 580px) {
+@media (max-width: 600px) {
   .contact-items li {
     flex-direction: column;
     align-items: flex-start;

@@ -33,9 +33,9 @@ function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
   }
 }
 
-function confirmDelete(id) {
+async function confirmDelete(id) {
   if (confirm("Are you sure you want to delete this contact?")) {
-    deleteContact(id);
-    renderPaginatedContacts(getContacts());
+    await deleteContact(id);
+    getContacts().then(contacts => renderPaginatedContacts(contacts));
   }
 }
