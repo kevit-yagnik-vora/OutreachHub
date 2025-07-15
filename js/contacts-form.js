@@ -22,5 +22,5 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     const email = document.getElementById("email").value;
 
     saveContact({ id, name, phone, email });
-    window.location.href = "contacts-list.html";
+    // window.location.href = `contacts-details.html?id=${id}`;
 });

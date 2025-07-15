@@ -11,12 +11,13 @@ body {
 }
 
 .container {
-  max-width: 900px;
-  margin: auto;
+  width: 80%;
+  margin: 20px auto;
   background: #fff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 
 .header {
@@ -28,6 +29,12 @@ body {
 .header h1 {
   font-size: 24px;
   font-weight: 600;
+}
+@media (max-width: 580px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .primary-button {
@@ -62,6 +69,12 @@ body {
   padding: 15px;
   margin-bottom: 10px;
   background: #fafafa;
+}
+@media (max-width: 580px) {
+  .contact-items li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .contact-info p {

@@ -12,45 +12,47 @@
 </head>
 
 <body>
+    <div class="wrapper">
 
-    <header class="navbar">
-        <div class="nav-brand">OutreachHub</div>
+        <header class="navbar">
+            <div class="nav-brand">OutreachHub</div>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-        <nav class="nav-menu" id="nav-menu">
-            <ul class="nav-links">
-                <li><a href="../index.html">Dashboard</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Campaigns</a></li>
-                <li><a href="#">Templates</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="./login.html">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <header class="header">
-            <h1>📇 OutreachHub Contacts</h1>
-            <button onclick="window.location.href='contacts-form.html'" class="primary-button">+ Add Contact</button>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Dashboard</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Campaigns</a></li>
+                    <li><a href="#">Templates</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="./login.html">Logout</a></li>
+                </ul>
+            </nav>
         </header>
 
-        <section class="contact-list">
-            <h2>All Contacts</h2>
-            <ul id="list" class="contact-items"></ul>
-            <div id="pagination" class="pagination"></div>
-        </section>
+        <div class="container">
+            <div class="header">
+                <h1>📇 OutreachHub Contacts</h1>
+                <button onclick="window.location.href='contacts-form.html'" class="primary-button">+ Add Contact</button>
+            </div>
+
+            <section class="contact-list">
+                <h2>All Contacts</h2>
+                <ul id="list" class="contact-items"></ul>
+                <div id="pagination" class="pagination"></div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 OutreachHub. All rights reserved.</p>
+        </footer>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 OutreachHub. All rights reserved.</p>
-    </footer>
-    
     <script src="../js/storage.js"></script>
     <script src="../js/pagination.js"></script>
     <script>

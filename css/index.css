@@ -10,6 +10,25 @@ body {
   color: #333;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -157,15 +176,6 @@ body {
 }
 .analytics-table tr:nth-child(even) {
   background-color: #fafafa;
-}
-
-.footer {
-  background-color: #4a90e2;
-  color: #ffffff;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
-  font-size: 0.95rem;
 }
 
 @media (max-width: 600px) {
