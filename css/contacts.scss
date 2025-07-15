@@ -34,7 +34,7 @@ body {
   padding: 30px;
   border-radius: 12px;
   box-shadow: $container-shadow;
-  flex:1;
+  flex: 1;
 }
 
 // ================ Header =================
@@ -48,6 +48,10 @@ body {
     font-size: 24px;
     font-weight: 600;
   }
+  @media (max-width: 580px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 }
 
 // ================ Primary Button =================
@@ -87,7 +91,14 @@ body {
     padding: 15px;
     margin-bottom: 10px;
     background: $item-bg;
+
+    @media (max-width: 580px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
+
+
 }
 
 // ================ Contact Info =================
@@ -135,14 +146,6 @@ body {
     &.active {
       background: $primary-btn;
       color: #fff;
-    }
-  }
-}
-@media (min-width:571) {
-  .contact-items li{
-    li{
-      display: flex;
-      flex-direction: column;
     }
   }
 }

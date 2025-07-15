@@ -30,6 +30,12 @@ body {
   font-size: 24px;
   font-weight: 600;
 }
+@media (max-width: 580px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
 .primary-button {
   background-color: #4a90e2;
@@ -63,6 +69,12 @@ body {
   padding: 15px;
   margin-bottom: 10px;
   background: #fafafa;
+}
+@media (max-width: 580px) {
+  .contact-items li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .contact-info p {
@@ -101,11 +113,4 @@ body {
 .pagination button.active {
   background: #4a90e2;
   color: #fff;
-}
-
-@media (min-width: 571) {
-  .contact-items li li {
-    display: flex;
-    flex-direction: column;
-  }
 }/*# sourceMappingURL=contacts.css.map */
