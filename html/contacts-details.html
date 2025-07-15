@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Details</title>
+  <link rel="stylesheet" href="../css/contacts-details.css" />
+  <link rel="stylesheet" href="../css/index.css" />
+
+
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="nav-brand">OutreachHub</div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="./html/contacts-list.html">Contacts</a></li>
+        <li><a href="#">Campaigns</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="../html/login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Contact Details</h1>
+    <div id="contactDetails"></div>
+    <button onclick="window.location.href='contacts-list.html'" class="primary-button">Back to List</button>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2025 OutreachHub. All rights reserved.</p>
+  </footer>
+  <script src="../js/storage.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const contact = getContactById(id);
+
+    if (contact) {
+      document.getElementById('contactDetails').innerHTML = `
+        <p><strong>Name:</strong> ${contact.name}</p>
+        <p><strong>Phone:</strong> ${contact.phone}</p>
+        <p><strong>Email:</strong> ${contact.email}</p>
+      `;
+    } else {
+      document.getElementById('contactDetails').innerHTML = '<p>Contact not found.</p>';
+    }
+  </script>
+</body>
+
+</html>
