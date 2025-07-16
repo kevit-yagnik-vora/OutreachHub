@@ -26,7 +26,7 @@
         <li><a href="#">Campaigns</a></li>
         <li><a href="#">Templates</a></li>
         <li><a href="#">Analytics</a></li>
-        <li><a href="../html/login.html">Logout</a></li>
+        <li id="logout-btn"><a href="../html/login.html">Logout</a></li>
       </ul>
     </nav>
   </header>
@@ -35,7 +35,7 @@
     <section class="welcome-section">
       <img src="./assets/images/logo.png" alt="OutreachHub Logo" class="brand-logo" />
 
-      <h1>Welcome to OutreachHub</h1>
+      <h1>Welcome <span id="username"></span> to OutreachHub</h1>
       <p>Your powerful outreach automation and analytics platform.</p>
     </section>
 
@@ -101,14 +101,9 @@
     <p>&copy; 2025 OutreachHub. All rights reserved.</p>
   </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      hamburger.classList.toggle('open');
-    });
+  <script src="./js/index.js
+  ">
+    
   </script>
 </body>
 
