@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(120deg, #74ebd5, #9face6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+.form-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+.form-box form #signup-form {
+  display: flex;
+  flex-direction: column;
+}
+.form-box form .input-box {
+  position: relative;
+  margin-bottom: 25px;
+}
+.form-box form .input-box input {
+  width: 100%;
+  padding: 12px 10px;
+  background: none;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+}
+.form-box form .input-box input:focus, .form-box form .input-box input:valid {
+  border-color: #7a60ff;
+}
+.form-box form .input-box label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: #fff;
+  padding: 0 4px;
+  font-size: 14px;
+  color: #666;
+  transition: 0.3s;
+}
+.form-box form .btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #7a60ff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.form-box form .btn:hover {
+  background: #624be0;
+}
+.form-box form .login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+.form-box form .login-link a {
+  color: #7a60ff;
+  text-decoration: none;
+}
+.form-box form .login-link a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=register.css.map */
