@@ -17,6 +17,6 @@ if (!token || !user) {
 
 document.getElementById('logout-btn').addEventListener('click', () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('userData');
     window.location.href = './login.html';
 });
