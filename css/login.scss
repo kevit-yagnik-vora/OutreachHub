@@ -1,119 +1,105 @@
-// ==================== Variables ====================
-$primary-color: #007BFF;
-$primary-hover: #0056b3;
-$text-dark: #333;
-$text-medium: #444;
+// ✅ Already provided SCSS variables and styles apply here
+$primary-color: #7a60ff;
+$primary-hover: #624be0;
+$background-gradient: linear-gradient(120deg, #74ebd5, #9face6);
+$text-color: #333;
+$label-color: #666;
 $input-border: #ccc;
-$bg-white: rgba(255, 255, 255, 0.95);
-$shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-$border-radius: 15px;
-$input-radius: 8px;
-$font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-// ==================== Base Reset ====================
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-// ==================== Body ====================
 body {
-  font-family: $font-main;
-  background-image: url('../assets/images/login-background.avif');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: $background-gradient;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-// ==================== Login Container ====================
-.login-container {
-  background-color: $bg-white;
-  padding: 2.5rem;
-  border-radius: $border-radius;
-  box-shadow: $shadow;
+.container {
   width: 100%;
   max-width: 400px;
+  padding: 20px;
+}
 
-  .brand-title {
+.form-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  h2 {
+    color: $text-color;
+    margin-bottom: 25px;
     text-align: center;
-    font-size: 2rem;
-    color: $primary-color;
-    margin-bottom: 0.5rem;
   }
 
-  .form-title {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: $text-dark;
-  }
-
-  .form-group {
-    margin-bottom: 1.2rem;
-
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      color: $text-medium;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid $input-border;
-      border-radius: $input-radius;
-      font-size: 1rem;
-
-      &:focus {
-        border-color: $primary-color;
-        outline: none;
-      }
-    }
-  }
-
-  .form-remember {
+  form {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-  }
+    flex-direction: column;
 
-  .form-actions {
-    text-align: center;
-    margin-top: 1rem;
+    .input-box {
+      position: relative;
+      margin-bottom: 25px;
 
-    .form-button {
-      background-color: $primary-color;
-      color: white;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: $input-radius;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      input {
+        width: 100%;
+        padding: 12px 10px;
+        border: 1.5px solid $input-border;
+        border-radius: 6px;
+        font-size: 16px;
+        outline: none;
 
-      &:hover {
-        background-color: $primary-hover;
+        &:focus,
+        &:valid {
+          border-color: $primary-color;
+        }
+      }
+
+      label {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        background: #fff;
+        padding: 0 4px;
+        font-size: 14px;
+        color: $label-color;
       }
     }
-  }
 
-  .form-links {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-
-    a {
-      color: $primary-color;
-      text-decoration: none;
+    .btn {
+      background: $primary-color;
+      color: #fff;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
 
       &:hover {
-        text-decoration: underline;
+        background: $primary-hover;
+      }
+    }
+
+    .login-link {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: center;
+      color: #555;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

@@ -1,92 +1,86 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("../assets/images/login-background.avif");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(120deg, #74ebd5, #9face6);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.login-container {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+.container {
   width: 100%;
   max-width: 400px;
+  padding: 20px;
 }
-.login-container .brand-title {
-  text-align: center;
-  font-size: 2rem;
-  color: #007BFF;
-  margin-bottom: 0.5rem;
+
+.form-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-.login-container .form-title {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+.form-box h2 {
   color: #333;
+  margin-bottom: 25px;
+  text-align: center;
 }
-.login-container .form-group {
-  margin-bottom: 1.2rem;
+.form-box form {
+  display: flex;
+  flex-direction: column;
 }
-.login-container .form-group .form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #444;
+.form-box form .input-box {
+  position: relative;
+  margin-bottom: 25px;
 }
-.login-container .form-group .form-input {
+.form-box form .input-box input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.login-container .form-group .form-input:focus {
-  border-color: #007BFF;
+  padding: 12px 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
   outline: none;
 }
-.login-container .form-remember {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
+.form-box form .input-box input:focus, .form-box form .input-box input:valid {
+  border-color: #7a60ff;
 }
-.login-container .form-actions {
-  text-align: center;
-  margin-top: 1rem;
+.form-box form .input-box label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: #fff;
+  padding: 0 4px;
+  font-size: 14px;
+  color: #666;
 }
-.login-container .form-actions .form-button {
-  background-color: #007BFF;
-  color: white;
-  padding: 0.75rem 2rem;
+.form-box form .btn {
+  background: #7a60ff;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
-.login-container .form-actions .form-button:hover {
-  background-color: #0056b3;
+.form-box form .btn:hover {
+  background: #624be0;
 }
-.login-container .form-links {
-  margin-top: 1rem;
+.form-box form .login-link {
+  margin-top: 15px;
+  font-size: 14px;
   text-align: center;
-  font-size: 0.9rem;
+  color: #555;
 }
-.login-container .form-links a {
-  color: #007BFF;
+.form-box form .login-link a {
+  color: #7a60ff;
   text-decoration: none;
 }
-.login-container .form-links a:hover {
+.form-box form .login-link a:hover {
   text-decoration: underline;
 }/*# sourceMappingURL=login.css.map */
