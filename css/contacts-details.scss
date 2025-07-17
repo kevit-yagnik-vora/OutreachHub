@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -7,14 +13,17 @@ body {
   background: #f3f6f9;
   color: #333;
 
+  .main-container{
+    flex: 1;
+  }
   .container {
+    width: 100%;
     max-width: 600px;
     margin: 50px auto;
     background: #fff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-
     h1 {
       text-align: center;
       margin-bottom: 30px;

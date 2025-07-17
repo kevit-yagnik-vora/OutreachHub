@@ -25,6 +25,11 @@ body {
   padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
+.form-box .logo {
+  margin: auto;
+  display: flex;
+  width: 60%;
+}
 .form-box h2 {
   color: #333;
   margin-bottom: 25px;

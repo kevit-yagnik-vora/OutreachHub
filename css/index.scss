@@ -167,8 +167,11 @@ html, body {
 }
 
 .brand-logo {
-  max-width: 120px;
+  min-width: 20%;
   margin-bottom: 1rem;
+  display: flex;
+  margin: auto;
+  width: 30%;
 }
 
 // Charts

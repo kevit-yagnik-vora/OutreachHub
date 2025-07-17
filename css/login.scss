@@ -33,6 +33,12 @@ body {
   padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
+  .logo{
+    margin: auto;
+    display: flex;
+    width: 60%;
+  }
+
   h2 {
     color: $text-color;
     margin-bottom: 25px;
