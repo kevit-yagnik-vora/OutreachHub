@@ -31,6 +31,10 @@ async function saveContact(contact) {
             body: JSON.stringify(contact)
         }).then(res => res.json()).then(res => {
             console.log("Record Updated")
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Contact Updated successful!",
+                type: "info"
+            }));
             window.location.href = `contacts-details.html?id=${res.id}`;
 
         })
@@ -43,6 +47,10 @@ async function saveContact(contact) {
             body: JSON.stringify(contact)
         }).then(res => res.json()).then(res => {
             console.log("Record Inserted")
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Contact Inserted successful!",
+                type: "success"
+            }));
             window.location.href = `contacts-details.html?id=${res.id}`;
 
         })
@@ -70,9 +78,15 @@ async function deleteContact(id) {
         method: 'DELETE'
     }).then(res => {
         if (!res.ok) {
-            console.log("Failed to Delete")
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Something went wrong",
+                type: "warning"
+            }));
         } else {
-            console.log("Delete successfull")
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Contact Deleted successful!",
+                type: "success"
+            }));
         }
     })
 }

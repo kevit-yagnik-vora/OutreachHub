@@ -17,10 +17,17 @@ $padding-lg: 3rem;
 $shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
 $shadow-table: 0 0 10px rgba(0, 0, 0, 0.05);
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body {

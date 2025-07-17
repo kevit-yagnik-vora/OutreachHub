@@ -11,7 +11,10 @@ document.getElementById('signup-form').addEventListener('submit', async function
         body: JSON.stringify({ name, email, password })
     }).then((res) => {
         console.log({ name, email, password })
-        alert("Register Successful...")
+        localStorage.setItem("dialogMessage", JSON.stringify({
+            text: "Sign up successful!",
+            type: "success"
+        }));
     })
     window.location.href = '/html/login.html'
 })

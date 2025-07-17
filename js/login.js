@@ -15,7 +15,10 @@ document.getElementById('login-form').addEventListener('submit', async function 
 
             localStorage.setItem('token', fakeJWT);
             localStorage.setItem('userData', JSON.stringify(matchedUser));
-            alert('Login successful!');
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Login successful!",
+                type: "success"
+            }));
             window.location.href = '../index.html';
         } else {
             alert('Invalid email or password!');
@@ -27,3 +30,11 @@ document.getElementById('login-form').addEventListener('submit', async function 
     }
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+  const msg = localStorage.getItem("dialogMessage");
+  if (msg) {
+    const { text, type } = JSON.parse(msg);
+    showDialog(text, type);
+    localStorage.removeItem("dialogMessage");
+  }
+});

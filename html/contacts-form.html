@@ -13,6 +13,8 @@
 
 <body>
 
+
+
     <header class="navbar">
         <div class="nav-brand">OutreachHub</div>
 
@@ -34,22 +36,30 @@
         </nav>
     </header>
 
-    <div class="container-form">
+    <main class="container-form">
         <h1>Add Contact</h1>
         <form id="contactForm">
             <input type="hidden" id="contactId" />
-            <input type="text" id="name" placeholder="Full Name" required />
-            <input type="tel" id="phone" placeholder="Phone Number" required />
-            <input type="email" id="email" placeholder="Email Address" />
-            <button type="submit" class="primary-button">Save</button>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter full name" required />
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter phone number" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter email address" />
+            </div>
+            <button type="submit" class="primary-button">Save Contact</button>
         </form>
-    </div>
+    </main>
 
     <footer class="footer">
         <p>&copy; 2025 OutreachHub. All rights reserved.</p>
     </footer>
-
-    <script src="../js/storage.js" ></script>
+    <script src="../js/storage.js"></script>
     <script src="../js/contacts-form.js"></script>
 
 </body>

@@ -1,15 +1,17 @@
 // ================= Variables =================
 $font-family: 'Poppins', 'Inter', sans-serif;
-$primary-bg: #f5f7fa;
-$text-color: #333;
-$container-bg: #fff;
-$container-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-$primary-btn: #4a90e2;
-$primary-btn-hover: #357ac9;
-$edit-btn: #6c5ce7;
-$delete-btn: #d63031;
-$border-color: #e0e0e0;
-$item-bg: #fafafa;
+$primary-bg: #eef3f8;
+$text-color: #2d2f35;
+$container-bg: #ffffff;
+$container-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+$primary-btn: #0069ff;
+$primary-btn-hover: #0052cc;
+$edit-btn: #5c6bc0;
+$view-btn: #26a69a;
+$delete-btn: #e53935;
+$border-color: #e0e6ed;
+$item-bg: #ffffff;
+$card-hover: #f4f9ff;
 
 // ================ Reset =================
 * {
@@ -23,18 +25,19 @@ body {
   font-family: $font-family;
   background-color: $primary-bg;
   color: $text-color;
-  // padding: 20px;
+  line-height: 1.6;
 }
 
 // ================ Container =================
 .container {
-  width: 80%;
-  margin: 20px auto;
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto;
   background: $container-bg;
-  padding: 30px;
-  border-radius: 12px;
+  padding: 50px;
+  border-radius: 20px;
   box-shadow: $container-shadow;
-  flex: 1;
+  transition: all 0.3s ease;
 }
 
 // ================ Header =================
@@ -42,40 +45,48 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 
   h1 {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 32px;
+    font-weight: 700;
+    color: $primary-btn;
   }
+
   @media (max-width: 580px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }
 
 // ================ Primary Button =================
 .primary-button {
   background-color: $primary-btn;
   color: white;
-  padding: 10px 20px;
+  padding: 14px 28px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 105, 255, 0.2);
 
   &:hover {
     background-color: $primary-btn-hover;
+    transform: translateY(-3px);
   }
 }
 
 // ================ Contact List =================
 .contact-list {
   h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: darken($text-color, 10%);
   }
 }
 
@@ -87,65 +98,104 @@ body {
     justify-content: space-between;
     align-items: center;
     border: 1px solid $border-color;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 10px;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
     background: $item-bg;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $card-hover;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
 
     @media (max-width: 600px) {
       flex-direction: column;
       align-items: flex-start;
+      gap: 15px;
     }
   }
-
-
 }
 
 // ================ Contact Info =================
 .contact-info {
   p {
-    margin: 4px 0;
+    margin: 6px 0;
+    color: darken($text-color, 15%);
+    font-size: 15px;
+  }
+
+  strong {
+    font-size: 20px;
+    font-weight: 600;
+    color: $primary-btn;
   }
 }
 
 // ================ Contact Actions =================
 .contact-actions {
+  display: flex;
+  gap: 12px;
+
   button {
-    margin-left: 10px;
-    padding: 6px 12px;
+    padding: 10px 16px;
     border: none;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .view {
+    background: $view-btn;
+    color: #fff;
+    &:hover {
+      background: darken($view-btn, 10%);
+    }
   }
 
   .edit {
     background: $edit-btn;
     color: #fff;
+    &:hover {
+      background: darken($edit-btn, 10%);
+    }
   }
 
   .delete {
     background: $delete-btn;
     color: #fff;
+    &:hover {
+      background: darken($delete-btn, 10%);
+    }
   }
 }
 
 // ================ Pagination =================
 .pagination {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 
   button {
-    background: #ddd;
+    background: #dce3eb;
     border: none;
-    padding: 8px 12px;
-    margin: 0 3px;
-    border-radius: 4px;
+    padding: 10px 16px;
+    margin: 0 6px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
+    transition: background 0.3s ease;
 
     &.active {
       background: $primary-btn;
       color: #fff;
+    }
+
+    &:hover:not(.active) {
+      background: darken(#dce3eb, 8%);
     }
   }
 }

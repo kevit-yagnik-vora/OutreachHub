@@ -7,7 +7,7 @@ function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
   const paginated = contacts.slice(start, start + perPage);
 
   listEl.innerHTML = "";
-  paginated.forEach(contact => {    
+  paginated.forEach(contact => {
     const li = document.createElement("li");
     li.innerHTML = `
       <div class="contact-info">
@@ -16,6 +16,7 @@ function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
         <p>${contact.email}</p>
       </div>
       <div class="contact-actions">
+        <button class="view" onclick="window.location.href='contacts-details.html?id=${contact.id}'">View</button>
         <button class="edit" onclick="window.location.href='contacts-form.html?id=${contact.id}'">Edit</button>
         <button class="delete" onclick="confirmDelete('${contact.id}')">Delete</button>
       </div>
@@ -36,6 +37,12 @@ function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
 async function confirmDelete(id) {
   if (confirm("Are you sure you want to delete this contact?")) {
     await deleteContact(id);
+    const msg = localStorage.getItem("dialogMessage");
+    if (msg) {
+      const { text, type } = JSON.parse(msg);
+      showDialog(text, type);
+      localStorage.removeItem("dialogMessage");
+    }
     getContacts().then(contacts => renderPaginatedContacts(contacts));
   }
 }
