@@ -74,6 +74,7 @@ async function deleteContact(id) {
     // let contacts = getContacts();
     // contacts = contacts.filter(c => c.id !== id);
     // localStorage.setItem("contacts", JSON.stringify(contacts));
+
     await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/Contact/' + id, {
         method: 'DELETE'
     }).then(res => {

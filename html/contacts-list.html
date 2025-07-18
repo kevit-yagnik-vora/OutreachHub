@@ -34,6 +34,38 @@
     </div>
     <div id="footer-placeholder"></div>
 
+    <div class="custom-confirm-overlay" id="customConfirmBox" style="display: none;">
+        <div class="custom-confirm-dialog">
+            <p id="customConfirmMessage">Are you sure?</p>
+            <div class="custom-confirm-buttons">
+                <button class="btn-yes" onclick="customConfirmYes()">Yes</button>
+                <button class="btn-no" onclick="customConfirmNo()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Logic to handle confirmation
+        let confirmCallback = null;
+
+        function showCustomConfirm(message, callback) {
+            document.getElementById("customConfirmMessage").textContent = message;
+            document.getElementById("customConfirmBox").style.display = "flex";
+            confirmCallback = callback;
+        }
+
+        function customConfirmYes() {
+            if (confirmCallback) confirmCallback(true);
+            document.getElementById("customConfirmBox").style.display = "none";
+        }
+
+        function customConfirmNo() {
+            if (confirmCallback) confirmCallback(false);
+            document.getElementById("customConfirmBox").style.display = "none";
+        }
+    </script>
+
+
     <script src="../js/storage.js"></script>
     <script src="../js/pagination.js"></script>
     <script src="../js/dialog.js"></script>
