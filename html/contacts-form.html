@@ -5,63 +5,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacts Module</title>
-    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="../css/contacts-form.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
-
-
-
-    <header class="navbar">
-        <div class="nav-brand">OutreachHub</div>
-
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <nav class="nav-menu" id="nav-menu">
-            <ul class="nav-links">
-                <li><a href="../index.html">Dashboard</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Campaigns</a></li>
-                <li><a href="#">Templates</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="./login.html">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container-form">
-        <h1>Add Contact</h1>
-        <form id="contactForm">
-            <input type="hidden" id="contactId" />
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter full name" required />
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter phone number" required />
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter email address" />
-            </div>
-            <button type="submit" class="primary-button">Save Contact</button>
-        </form>
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2025 OutreachHub. All rights reserved.</p>
-    </footer>
+    <div id="header-placeholder"></div>
+    <div class="container">
+        <main class="container-form">
+            <h1>Add Contact</h1>
+            <form id="contactForm">
+                <input type="hidden" id="contactId" />
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter full name" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter phone number" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter email address" />
+                </div>
+                <button type="submit" class="primary-button">Save Contact</button>
+            </form>
+        </main>
+    </div>
+    <div id="footer-placeholder"></div>
     <script src="../js/storage.js"></script>
     <script src="../js/contacts-form.js"></script>
+    <script>
+        fetch("/components/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+                const hamburger = document.getElementById('hamburger');
+                const navMenu = document.getElementById('nav-menu');
 
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('open');
+                });
+            });
+
+        fetch("/components/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+    </script>
 </body>
 
 </html>

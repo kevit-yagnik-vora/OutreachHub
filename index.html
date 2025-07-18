@@ -6,30 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OutreachHub - Home</title>
   <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/footer.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <header class="navbar">
-    <div class="nav-brand">OutreachHub</div>
-
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <nav class="nav-menu" id="nav-menu">
-      <ul class="nav-links">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="./html/contacts-list.html">Contacts</a></li>
-        <li><a href="#">Campaigns</a></li>
-        <li><a href="#">Templates</a></li>
-        <li><a href="#">Analytics</a></li>
-        <li id="logout-btn"><a href="../html/login.html">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main class="main-content">
     <section class="welcome-section">
@@ -97,16 +81,41 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 OutreachHub. All rights reserved.</p>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script src="./js/index.js">
-    
-  </script>
+  <script src="./js/index.js"></script>
   <script src="../js/dialog.js"></script>
-  <script src="./js/dialog.js"></script>
 
+  <script>
+    fetch("/components/header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          hamburger.classList.toggle('open');
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('userData');
+          localStorage.setItem("dialogMessage", JSON.stringify({
+            text: "Logout successful!",
+            type: "info"
+          }));
+          window.location.href = './login.html';
+        });
+      });
+
+    fetch("/components/footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
 </body>
 
 </html>

@@ -20,6 +20,10 @@ $card-hover: #f4f9ff;
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
 // ================ Body =================
 body {
   font-family: $font-family;
