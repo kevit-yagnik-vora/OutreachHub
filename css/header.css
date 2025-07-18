@@ -57,7 +57,7 @@
   color: #d0e2ff;
 }
 
-@media (max-width: 830px) {
+@media (max-width: 930px) {
   .hamburger {
     display: flex;
   }
