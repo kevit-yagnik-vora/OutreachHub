@@ -86,39 +86,8 @@
   <script src="./js/authGuard.js"></script>
   <script src="./js/index.js"></script>
   <script src="../js/dialog.js"></script>
+  <script src="./js/layout.js"></script>
 
-  <script>
-    fetch("/components/header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        hamburger.addEventListener('click', () => {
-          navMenu.classList.toggle('active');
-          hamburger.classList.toggle('open');
-        });
-
-        
-
-        document.getElementById('logout-btn').addEventListener('click', () => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('userData');
-          localStorage.setItem("dialogMessage", JSON.stringify({
-            text: "Logout successful!",
-            type: "info"
-          }));
-          window.location.href = '/html/login.html';
-        });
-      });
-
-    fetch("/components/footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      });
-  </script>
 </body>
 
 </html>

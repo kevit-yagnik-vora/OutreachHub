@@ -5,6 +5,7 @@ function isJWTValid(token) {
     try {
         const payload = JSON.parse(atob(token.split('.')[1]));
         const currentTime = Math.floor(Date.now() / 1000); // in seconds
+        console.log("JWT Payload:", payload.exp,"currentTime:", currentTime);
         return payload.exp && payload.exp > currentTime;
     } catch (e) {
         console.error("Invalid JWT token:", e);
