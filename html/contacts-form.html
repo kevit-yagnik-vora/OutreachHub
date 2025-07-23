@@ -18,24 +18,26 @@
         <main class="container-form">
             <h1>Add Contact</h1>
             <form id="contactForm">
-                <input type="hidden" id="contactId" />
+                <input type="hidden" id="id" />
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" placeholder="Enter full name" required />
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="Enter phone number" required />
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" placeholder="Enter phone number" required />
                 </div>
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="Enter email address" />
+                    <label for="tags">Tags</label>
+                    <input type="tags" id="tags" placeholder="Enter tags" />
                 </div>
                 <button type="submit" class="primary-button">Save Contact</button>
             </form>
         </main>
     </div>
     <div id="footer-placeholder"></div>
+    <script src="../js/authGuard.js"></script>
+
     <script src="../js/storage.js"></script>
     <script src="../js/contacts-form.js"></script>
     <script>
@@ -49,6 +51,16 @@
                 hamburger.addEventListener('click', () => {
                     navMenu.classList.toggle('active');
                     hamburger.classList.toggle('open');
+                });
+
+                document.getElementById('logout-btn').addEventListener('click', () => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userData');
+                    localStorage.setItem("dialogMessage", JSON.stringify({
+                        text: "Logout successful!",
+                        type: "info"
+                    }));
+                    window.location.href = '/html/login.html';
                 });
             });
 

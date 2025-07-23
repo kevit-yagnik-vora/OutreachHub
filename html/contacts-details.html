@@ -24,17 +24,19 @@
     </div>
   </div>
   <div id="footer-placeholder"></div>
+  <script src="../js/authGuard.js"></script>
 
   <script src="../js/storage.js"></script>
   <script>
+    protectPage();
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     getContactById(id).then(contact => {
       if (contact) {
         document.getElementById('contactDetails').innerHTML = `
         <p><strong>Name:</strong> ${contact.name}</p>
-        <p><strong>Phone:</strong> ${contact.phone}</p>
-        <p><strong>Email:</strong> ${contact.email}</p>
+        <p><strong>Phone:</strong> ${contact.phoneNumber}</p>
+        <p><strong>Email:</strong> ${contact.tags}</p>
       `;
       } else {
         document.getElementById('contactDetails').innerHTML = '<p>Contact not found.</p>';
@@ -52,6 +54,16 @@
         hamburger.addEventListener('click', () => {
           navMenu.classList.toggle('active');
           hamburger.classList.toggle('open');
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('userData');
+          localStorage.setItem("dialogMessage", JSON.stringify({
+            text: "Logout successful!",
+            type: "info"
+          }));
+          window.location.href = '/html/login.html';
         });
       });
 

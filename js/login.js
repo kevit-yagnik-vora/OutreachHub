@@ -1,27 +1,35 @@
 document.getElementById('login-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const email = document.getElementById('login-email').value.trim();
+    const username = document.getElementById('login-username').value.trim();
     const password = document.getElementById('login-password').value.trim();
 
     try {
-        const response = await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/user');
-        const users = await response.json();
+        const response = await fetch('http://localhost:3000/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+        const user = await response.json();
+        console.log(user);
 
-        const matchedUser = users.find(user => user.email === email && user.password === password);
 
-        if (matchedUser) {
-            const fakeJWT = btoa(`${matchedUser.id}:${matchedUser.email}:${Date.now()}`);
+        if (user) {
+            const JWTtoken = user.access_token;
+            const payload = JWTtoken.split('.')[1];
+            const decoded = atob(payload);
 
-            localStorage.setItem('token', fakeJWT);
-            localStorage.setItem('userData', JSON.stringify(matchedUser));
+            localStorage.setItem('token', JWTtoken);
+            localStorage.setItem('userData', decoded);
             localStorage.setItem("dialogMessage", JSON.stringify({
                 text: "Login successful!",
                 type: "success"
             }));
             window.location.href = '../index.html';
         } else {
-            alert('Invalid email or password!');
+            alert('Invalid username or password!');
         }
 
     } catch (error) {
@@ -31,10 +39,10 @@ document.getElementById('login-form').addEventListener('submit', async function 
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const msg = localStorage.getItem("dialogMessage");
-  if (msg) {
-    const { text, type } = JSON.parse(msg);
-    showDialog(text, type);
-    localStorage.removeItem("dialogMessage");
-  }
+    const msg = localStorage.getItem("dialogMessage");
+    if (msg) {
+        const { text, type } = JSON.parse(msg);
+        showDialog(text, type);
+        localStorage.removeItem("dialogMessage");
+    }
 });

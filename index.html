@@ -83,6 +83,7 @@
 
   <div id="footer-placeholder"></div>
 
+  <script src="./js/authGuard.js"></script>
   <script src="./js/index.js"></script>
   <script src="../js/dialog.js"></script>
 
@@ -99,6 +100,8 @@
           hamburger.classList.toggle('open');
         });
 
+        
+
         document.getElementById('logout-btn').addEventListener('click', () => {
           localStorage.removeItem('token');
           localStorage.removeItem('userData');
@@ -106,7 +109,7 @@
             text: "Logout successful!",
             type: "info"
           }));
-          window.location.href = './login.html';
+          window.location.href = '/html/login.html';
         });
       });
 

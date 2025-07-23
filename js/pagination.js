@@ -1,10 +1,14 @@
-function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
+function renderPaginatedContacts(contacts, page=1, perPage=5) {
   const listEl = document.getElementById("list");
   const paginationEl = document.getElementById("pagination");
 
-  const totalPages = Math.ceil(contacts.length / perPage);
+  // const totalPages = Math.ceil(contacts.data.length / perPage);
+  const totalPages = contacts.totalPages || Math.ceil(contacts.data.length / perPage);
+  page = contacts.page || 1;
+  perPage = contacts.limit || 5;
+
   const start = (page - 1) * perPage;
-  const paginated = contacts.slice(start, start + perPage);
+  const paginated = contacts.data.slice(start, start + perPage);
 
   listEl.innerHTML = "";
   paginated.forEach(contact => {
@@ -12,9 +16,9 @@ function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
     li.innerHTML = `
       <div class="contact-info">
         <strong>${contact.name}</strong>
-        <p>${contact.phone}</p>
-        <p>${contact.email}</p>
-      </div>
+        <p>${contact.phoneNumber}</p>
+        <p>${contact.tags}</p>
+      </div>  
       <div class="contact-actions">
         <button class="view" onclick="window.location.href='contacts-details.html?id=${contact.id}'">View</button>
         <button class="edit" onclick="window.location.href='contacts-form.html?id=${contact.id}'">Edit</button>
@@ -35,9 +39,6 @@ function renderPaginatedContacts(contacts, page = 1, perPage = 5) {
 }
 
 async function confirmDelete(id) {
-  if (showCustomConfirm("Are you sure you want to delete this contact?")) {
-
-  }
 
   showCustomConfirm("Do you really want to delete this contact?",async function (confirmed) {
     if (confirmed) {

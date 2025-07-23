@@ -1,32 +1,24 @@
 async function getContacts() {
     let contact;
-    await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/Contact')
+    await fetch('http://localhost:3000/contacts/', {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    })
         .then(res => res.json())
         .then(res => contact = res);
-    // return JSON.parse(localStorage.getItem("contacts")) || [];
+    // console.log(contact);
     return contact;
 }
 
 async function saveContact(contact) {
-    // console.log(contact)
-    // let contacts = getContacts();
-    // const index = contacts.findIndex(c => c.id === contact.id);
-    // let id;
-    // if (index > -1) {
-    //     contacts[index] = contact;
-    //     id = contacts[index].id;
-    // } else {
-    //     contact.id = Date.now().toString();
-    //     id = contact.id;
-    //     contacts.push(contact);
-    // }
-    // localStorage.setItem("contacts", JSON.stringify(contacts));
-    // window.location.href = `contacts-details.html?id=${id}`;
-    if (contact.id !== '') {
-        await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/Contact/' + contact.id, {
+    if (contact.id) {
+        console.log("Updating contact with ID:", contact.id);
+        await fetch('http://localhost:3000/contacts/' + contact.id, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify(contact)
         }).then(res => res.json()).then(res => {
@@ -36,15 +28,23 @@ async function saveContact(contact) {
                 type: "info"
             }));
             window.location.href = `contacts-details.html?id=${res.id}`;
-
-        })
+        }).catch(err => {
+            console.log(err);
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Something went wrong",
+                type: "warning"
+            }));
+        });
     } else {
-        await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/Contact', {
+        console.log("Inserting new contact");
+        const { id, ...rest } = contact;
+        await fetch('http://localhost:3000/contacts', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            body: JSON.stringify(contact)
+            body: JSON.stringify(rest)
         }).then(res => res.json()).then(res => {
             console.log("Record Inserted")
             localStorage.setItem("dialogMessage", JSON.stringify({
@@ -52,31 +52,37 @@ async function saveContact(contact) {
                 type: "success"
             }));
             window.location.href = `contacts-details.html?id=${res.id}`;
-
-        })
+        }).catch(err => {
+            console.log(err);
+            localStorage.setItem("dialogMessage", JSON.stringify({
+                text: "Something went wrong",
+                type: "warning"
+            }));
+        });
     }
-
-
-
 }
 
 async function getContactById(id) {
-    // const contacts = getContacts();
-    // return contacts.find(c => c.id === id);
     let contact;
-    await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/Contact/' + id).then(res => res.json()).then(res => {
+    await fetch('http://localhost:3000/contacts/' + id, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    }).then(res => res.json()).then(res => {
         contact = res
     })
     return contact;
 }
 
 async function deleteContact(id) {
-    // let contacts = getContacts();
-    // contacts = contacts.filter(c => c.id !== id);
-    // localStorage.setItem("contacts", JSON.stringify(contacts));
 
-    await fetch('https://687614dc814c0dfa653a8c62.mockapi.io/Contact/' + id, {
-        method: 'DELETE'
+    await fetch('http://localhost:3000/contacts/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
     }).then(res => {
         if (!res.ok) {
             localStorage.setItem("dialogMessage", JSON.stringify({

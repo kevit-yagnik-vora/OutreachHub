@@ -65,11 +65,12 @@
         }
     </script>
 
-
+    <script src="../js/authGuard.js"></script>
     <script src="../js/storage.js"></script>
     <script src="../js/pagination.js"></script>
     <script src="../js/dialog.js"></script>
     <script>
+        protectPage();
         getContacts().then(contacts => renderPaginatedContacts(contacts));
         window.addEventListener("DOMContentLoaded", () => {
             const msg = localStorage.getItem("dialogMessage");
@@ -92,6 +93,16 @@
                 hamburger.addEventListener('click', () => {
                     navMenu.classList.toggle('active');
                     hamburger.classList.toggle('open');
+                });
+
+                document.getElementById('logout-btn').addEventListener('click', () => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userData');
+                    localStorage.setItem("dialogMessage", JSON.stringify({
+                        text: "Logout successful!",
+                        type: "info"
+                    }));
+                    window.location.href = '/html/login.html';
                 });
             });
 
